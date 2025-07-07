@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FunnyPlay88 - Casino Online</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #121212; color: #fff; margin: 0; }
+    header, footer { background: #1f1f1f; padding: 1rem; text-align: center; }
+    main { padding: 1rem; }
+    .game-frame { width: 100%; height: 500px; border: none; }
+    .section { margin-bottom: 2rem; }
+    label, input, button, select { display: block; margin: 0.5rem 0; padding: 0.5rem; width: 100%; max-width: 400px; }
+    .bonus-info, .referido-info { background: #222; padding: 1rem; border-radius: 8px; margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FunnyPlay88</h1>
+    <p>Bienvenido al casino online - Welcome to the online casino</p>
+  </header>
+
+  <main>
+    <section class="section">
+      <h2>🎰 Juego Principal / Main Game</h2>
+      <iframe class="game-frame" src="https://www.funny88.club/#/?game=Iframe"></iframe>
+    </section>
+
+    <section class="section">
+      <h2>📝 Registro / Register</h2>
+      <form id="register-form">
+        <label>Nombre completo / Full Name <input type="text" required /></label>
+        <label>Fecha de nacimiento / Birthdate <input type="date" required /></label>
+        <label>Email <input type="email" required /></label>
+        <label>Teléfono / Phone <input type="tel" required /></label>
+        <label>Contraseña / Password <input type="password" required /></label>
+        <label>Código de referido (opcional) / Referral code (optional) <input type="text" /></label>
+        <button type="submit">Registrarse / Register</button>
+      </form>
+      <div class="bonus-info">
+        <strong>Bono:</strong> Deposita $250+ y recibe el doble. Hasta $100 de regalo por cada referido. / Deposit $250+ and get double. Up to $100 per referral.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>💵 Simulador de Depósito / Deposit Simulator</h2>
+      <p>CLABE asignada (simulada): <strong>646180000000USER123</strong></p>
+      <label>Monto a depositar / Amount <input type="number" id="deposit-amount" /></label>
+      <button onclick="simulateDeposit()">Simular Depósito</button>
+      <div id="deposit-result"></div>
+    </section>
+
+    <section class="section">
+      <h2>💸 Solicitud de Retiro / Withdrawal Request</h2>
+      <label>Monto a retirar / Amount to withdraw <input type="number" id="withdraw-amount" /></label>
+      <button onclick="startWithdrawal()">Iniciar proceso de retiro / Start withdrawal process</button>
+      <div id="withdraw-steps"></div>
+    </section>
+
+    <section class="section">
+      <h2>📣 Referidos / Referrals</h2>
+      <div class="referido-info">
+        Tu link: <code>https://funnyplay88.com/register?ref=USER123</code><br />
+        Por cada amigo que se registre y deposite: gana hasta $100. Tus amigos también reciben bonos. / For each friend who registers and deposits: earn up to $100. Friends also get bonuses.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FunnyPlay88 - Todos los derechos reservados / All rights reserved</p>
+  </footer>
+
+  <script>
+    function simulateDeposit() {
+      const amount = parseFloat(document.getElementById('deposit-amount').value);
+      let bonus = 0;
+      if (amount >= 250) bonus = amount;
+      else if (amount >= 200) bonus = amount * 0.5;
+      else if (amount >= 150) bonus = amount * 0.5;
+      else if (amount >= 100) bonus = amount * 0.5;
+      document.getElementById('deposit-result').innerText = `Depósito recibido: $${amount}. Bono aplicado: $${bonus}`;
+    }
+
+    function startWithdrawal() {
+      const amount = parseFloat(document.getElementById('withdraw-amount').value);
+      const paso1 = amount * 0.10;
+      const paso2 = amount * 0.20;
+      const paso3 = amount > 1000 ? amount * 0.30 : amount * 0.25;
+      const paso4 = amount * 0.50;
+      document.getElementById('withdraw-steps').innerHTML = `
+        <p>Paso 1: Paga $${paso1.toFixed(2)} para iniciar el proceso (desbloquea 50%)</p>
+        <p>Paso 2: Paga $${paso2.toFixed(2)} para activar acceso VIP y eliminar la espera</p>
+        <p>Paso 3: Paga $${paso3.toFixed(2)} para desbloquear 100% del monto</p>
+        <p>Paso 4: Paga $${paso4.toFixed(2)} para validar tu cuenta y liberar los fondos</p>
+      `;
+    }
+  </script>
+</body>
+</html>
